@@ -12,10 +12,19 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
+    steps:    
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
         with:
-          ref: gh-pages
-      - uses: actions/deploy-pages@v4
+          ref: gh-pages # <-- Параметр скачивания ветки должен быть ЗДЕСЬ
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # Теперь он возьмет файлы из скачанной ветки gh-pages
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
