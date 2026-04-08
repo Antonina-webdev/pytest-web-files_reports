@@ -1,2 +1,3 @@
 # pytest-web-files_reports
-Reports from pytest-web-files
+
+Репозиторий для отчетов Allure моего авторского фреймфорка
