@@ -11,12 +11,7 @@ permissions:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-      
+    runs-on: ubuntu-latest      
     steps:    
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -32,5 +27,4 @@ jobs:
           path: '.' # Теперь он возьмет файлы из скачанной ветки gh-pages
 
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
