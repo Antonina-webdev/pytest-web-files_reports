@@ -2,8 +2,9 @@ name: Deploy Pages
 on:
   push:
     branches: [gh-pages] # Как только прилетает отчет, обновляем сайт
+  workflow_dispatch:
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
